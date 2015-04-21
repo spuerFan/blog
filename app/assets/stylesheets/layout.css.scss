@@ -1,0 +1,34 @@
+.navbar {
+  background: #222;
+  position: relative;
+  z-index: 1000;
+
+  a {
+  color: #fff;
+}
+}
+ 
+.login {
+  position: absolute;
+  right: 32px;
+  color:#fff;
+}
+
+.login li {
+  #margin-right:5px;
+  display:inline;
+  
+}
+
+
+
+
+
+.footer {
+  border-top: 1px solid #c5c5c5;
+  min-height: 200px;
+  margin: 3em 0;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  background: #f8f5f0;
+}

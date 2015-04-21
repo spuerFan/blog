@@ -1,0 +1,31 @@
+
+	 
+
+
+
+
+
+     <div class="container">
+	 <h1><%= @article.titile %></h1>
+     <class class="body">
+       <p class="intro"><%= markdown(@article.text) %></p>	
+     </class>
+	 
+
+	      <!-- <p><%= @article.text %></p> -->
+
+	<%  if @article.id == 1 %>
+
+		<h2>Comments</h2>
+		<%= render @article.comments %>
+		 
+		<h2>Add a comment:</h2>
+		<%= render "comments/form" %>
+
+		<%= link_to 'Edit Article', edit_article_path(@article) %> |
+	    <%= link_to 'Back to Articles', articles_path %>
+	 <% end %>
+	 </div> 
+
+	
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>blog</title>
+  
+  <%= stylesheet_link_tag "application" %>
+  
+  <%= javascript_include_tag "application" %>
+
+  <%= csrf_meta_tags %>
+
+</head>
+<body class="<%= params[:controller] + '-' + params[:action] %>">
+
+<div class="navbar clearfix">
+  <div class="container">
+    <a class="navbar-brand" href="/articles">
+      SuperFan
+    </a>
+
+
+  
+
+    <ul class="navbar-brand login">
+
+    <% if current_user %>
+      <li><%= link_to current_user.name, "#" %></li>
+      <li><%= link_to "logout", logout_path, method: "delete" %></li>
+    <% else %>
+      <li><%= link_to "login", login_path %></li>
+      <li><%= link_to "signup", signup_path %></li>
+    <% end %>
+      </ul>
+
+    
+  </div>
+</div>
+
+<div role="navigation" id="foo" class="nav-collapse">
+      <ul>
+        <li><a href="/articles">Blog</a></li>
+        <li><a href="/articles/12">History</a></li>
+        <!-- <li><a href="/about">About</a></li> -->
+        <li><%= link_to t("navbar.about"), "/about" %></li>
+      </ul>
+    </div>
+
+
+<div role="main" class="main">
+      <a href="#nav" class="nav-toggle">Menu</a>
+
+      <%= yield %>
+      <% if flash.notice %>
+        <div class="notice"><%= t(flash.notice) %></div>
+      <% end %>
+
+  <div class="footer">
+    <div class="container">
+      footer
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  $('.home-banner').anystretch();
+  var navigation = responsiveNav("foo", {customToggle: ".nav-toggle"});
+  var hideNotice = function(){
+     $(".notice").fadeOut("slow");
+  }
+  setTimeout(hideNotice, 4000);
+</script>
+
+</body>
+</html>
